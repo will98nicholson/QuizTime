@@ -41,16 +41,16 @@ var penalty = 10;
 var ulCreate = document.createElement("ul");
 
 timer.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
-    if (holdInterval === 0) {
-        holdInterval = setInterval(function () {
+
+    if (holdTime === 0) {
+        holdTime = setInterval(function () {
             secondsLeft--;
-            currentTime.textContent = "Time: " + secondsLeft;
+            clock.textContent = "Seconds Remaining: " + secondsLeft;
 
             if (secondsLeft <= 0) {
-                clearInterval(holdInterval);
+                clearInterval(holdTime);
                 allDone();
-                currentTime.textContent = "Time's up!";
+                clock.textContent = "Time's up!";
             }
         }, 1000);
     }
