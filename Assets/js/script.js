@@ -22,4 +22,38 @@ var questions = [
 
 ];
 
+var score = 0;
+var questionIndex = 0;
+
+
+var clock = document.querySelector("#clock");
+var timer = document.querySelector("#beginQuiz");
+var prompt = document.querySelector("#prompt");
+var container = document.querySelector("#container");
+
+
+var secondsLeft = 60;
+
+var holdTime = 0;
+
+var penalty = 10;
+
+var ulCreate = document.createElement("ul");
+
+timer.addEventListener("click", function () {
+    // We are checking zero because its originally set to zero
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function () {
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(holdInterval);
+                allDone();
+                currentTime.textContent = "Time's up!";
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
 
