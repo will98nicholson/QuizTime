@@ -1,38 +1,46 @@
 var questions = [
     {
-        title: "The data type that contains one of two possible values, usually True or False, is known as:",
-        choices: ["string", "boolean", "number", "integer"],
-        answer: "boolean"
+        ask: "The data type that contains one of two possible values, usually True or False, is known as:",
+        selection: ["string", "boolean", "number", "integer"],
+        correct: "boolean"
     },
     {
-        title: "Which of the following is the coding language that is used to style and format the layout of a webpage?",
-        choices: ["CSS", "Javascript", "HTML", "HooliTech"],
-        answer: "CSS"
+        ask: "Which of the following is the coding language that is used to style and format the layout of a webpage?",
+        selection: ["CSS", "Javascript", "HTML", "HooliTech"],
+        correct: "CSS"
     },
     {
-        title: "Which HTML element tag is generally the most useful when dealing with Flexboxes?",
-        choices: ["head", "div", "body", "footer"],
-        answer: "div"
+        ask: "Which HTML element tag is generally the most useful when dealing with Flexboxes?",
+        selection: ["head", "div", "body", "footer"],
+        correct: "div"
     },
     {
-        title: "In Javascript, values of an array must be enclosed by:",
-        choices: ["brackets", "question marks", "quotation marks", "parentheses"],
-        answer: "brackets"
+        ask: "In Javascript, values of an array must be enclosed by:",
+        selection: ["brackets", "question marks", "quotation marks", "parentheses"],
+        correct: "brackets"
     },
 
 ];
-
-var score = 0;
 var allQuestions = 0;
+
+
+//HTML IDs
+var newUl = document.createElement("ul");
 var clock = document.querySelector("#clock");
 var timer = document.querySelector("#beginQuiz");
 var prompt = document.querySelector("#prompt");
 var container = document.querySelector("#container");
+
+
 var secondsLeft = 60;
 var holdTime = 0;
-var penalty = 10;
-var ulCreate = document.createElement("ul");
+var dockTime = 10;
+var score = 0;
 
+
+
+
+//countdown
 timer.addEventListener("click", function () {
 
     if (holdTime === 0) {
@@ -43,7 +51,7 @@ timer.addEventListener("click", function () {
             if (secondsLeft <= 0) {
                 clearInterval(holdTime);
                 endQuiz();
-                clock.textContent = "Time's up!";
+                clock.textContent = "You're outta time!";
             }
         }, 1000);
     }
@@ -54,19 +62,19 @@ timer.addEventListener("click", function () {
 function render(allQuestions) {
 
     prompt.innerHTML = "";
-    ulCreate.innerHTML = "";
+    newUl.innerHTML = "";
 
     for (var i = 0; i < questions.length; i++) {
-        var questionDisplay = questions[allQuestions].title;
-        var choicesDisplay = questions[allQuestions].choices;
+        var questionDisplay = questions[allQuestions].ask;
+        var selectionDisplay = questions[allQuestions].selection;
         prompt.textContent = questionDisplay;
     }
-    // make answer variables into listed elements
-    choicesDisplay.forEach(function (newItem) {
+    // make correct variables into listed elements
+    selectionDisplay.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
-        prompt.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
+        prompt.appendChild(newUl);
+        newUl.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
 }
@@ -77,12 +85,12 @@ function compare(event) {
     if (element.matches("li")) {
         var newDiv = document.createElement("div");
         newDiv.setAttribute("id", "createDiv");
-        if (element.textContent == questions[allQuestions].answer) {
+        if (element.textContent == questions[allQuestions].correct) {
             score++;
-            newDiv.textContent = "Correct! The answer is:  " + questions[allQuestions].answer;
+            newDiv.textContent = "Correct! The correct is:  " + questions[allQuestions].correct;
         } else {
-            secondsLeft = secondsLeft - penalty;
-            newDiv.textContent = "Nope! The correct answer is:  " + questions[allQuestions].answer;
+            secondsLeft = secondsLeft - dockTime;
+            newDiv.textContent = "Nope! The correct correct is:  " + questions[allQuestions].correct;
         }
 
     }
@@ -173,4 +181,5 @@ function endQuiz() {
         }
     });
 
-} 
+}
+
