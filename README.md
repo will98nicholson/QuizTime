@@ -1,4 +1,3 @@
-# 02 Advanced CSS: Portfolio
 
 ## Description
 
