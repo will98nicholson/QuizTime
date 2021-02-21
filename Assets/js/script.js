@@ -69,7 +69,7 @@ function render(allQuestions) {
         var selectionDisplay = questions[allQuestions].selection;
         prompt.textContent = questionDisplay;
     }
-    // make correct variables into listed elements
+    // make variables into listed elements
     selectionDisplay.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -84,13 +84,13 @@ function compare(event) {
 
     if (element.matches("li")) {
         var newDiv = document.createElement("div");
-        newDiv.setAttribute("id", "createDiv");
+        newDiv.setAttribute("id", "newDiv");
         if (element.textContent == questions[allQuestions].correct) {
             score++;
-            newDiv.textContent = "Correct! The correct is:  " + questions[allQuestions].correct;
+            newDiv.textContent = "Correct!";
         } else {
             secondsLeft = secondsLeft - dockTime;
-            newDiv.textContent = "Nope! The correct correct is:  " + questions[allQuestions].correct;
+            newDiv.textContent = "Nope! The answer you're looking for is:  " + questions[allQuestions].correct;
         }
 
     }
@@ -98,7 +98,7 @@ function compare(event) {
 
     if (allQuestions >= questions.length) {
         endQuiz();
-        newDiv.textContent = "You got  " + score + "/" + questions.length + " Correct!";
+        newDiv.textContent = "You answered  " + score + "out of" + questions.length + " Q's correctly!";
     } else {
         render(allQuestions);
     }
@@ -138,14 +138,14 @@ function endQuiz() {
 
     prompt.appendChild(newBox);
 
-    // enter initials to be logged
+    // enter initials to keep score in local memory
     var boxData = document.createElement("input");
     boxData.setAttribute("type", "text");
-    boxData.setAttribute("id", "initials");
+    boxData.setAttribute("id", "enterInitials");
     boxData.textContent = "";
 
     prompt.appendChild(boxData);
-    // submit 
+    // submit to local storage
     var submitData = document.createElement("button");
     submitData.setAttribute("type", "submit");
     submitData.setAttribute("id", "Submit");
@@ -156,15 +156,15 @@ function endQuiz() {
 
     // local storage
     submitData.addEventListener("click", function () {
-        var initials = boxData.value;
+        var enterInitials = boxData.value;
 
-        if (initials === null) {
+        if (enterInitials === null) {
 
             console.log("empty");
 
         } else {
             var finalScore = {
-                initials: initials,
+                enterInitials: enterInitials,
                 score: spareTime
             }
             console.log(finalScore);

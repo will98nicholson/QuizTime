@@ -15,7 +15,7 @@ if (scoreHistory !== null) {
     for (var i = 0; i < scoreHistory.length; i++) {
 
         var newLi = document.createElement("li");
-        newLi.textContent = scoreHistory[i].initials + " " + scoreHistory[i].score;
+        newLi.textContent = scoreHistory[i].enterInitials + " " + scoreHistory[i].score;
         highScore.appendChild(newLi);
 
     }

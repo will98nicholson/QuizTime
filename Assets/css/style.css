@@ -4,6 +4,7 @@
 
 #container {
     position: absolute;
+    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -12,6 +13,7 @@
     width: 500px;
     height: 400px;
     border: 1px solid black;
+    border-radius: 40px;
     font-size: larger;
 }
 
@@ -28,11 +30,13 @@ button:hover {
     color: white;
 
 }
-
+ul {
+    background-color: aquamarine;
+}
 li {
     background-color: #480ca8;
-    margin-top: 10px;
-    padding: 5px 15px;
+  
+    padding: 5px 20px;
     width: 80%;
     font-size: 18px;
     color: white;
@@ -45,25 +49,31 @@ li:hover {
   }
 #clock {
     float: right;
+    background-color: aquamarine;
     
 }
 #prompt {
     min-height: 60%;
+    background-color: aquamarine;
 }
 h1 {
     margin-left: 29%;
     color: black;
+    background-color: aquamarine;
 }
 p {
     color: black;
     margin-left: 5%;
+    background-color: aquamarine;
 }
 #newBox, #newP, #newDiv {
     margin-left: 7%;
+    background-color: aquamarine;
 }
 
 #newH1 {
     font-size: 30px;
+    background-color: aquamarine;
 }
 
 
