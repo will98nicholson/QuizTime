@@ -25,5 +25,5 @@ the option to clear all past high scores, and start the quiz over after submitti
 
 
 ### Links
-[deployedApplication] https://will98nicholson.github.io/hw2/
+[deployedApplication]  https://will98nicholson.github.io/QuizTime/
 

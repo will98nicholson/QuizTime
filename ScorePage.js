@@ -7,6 +7,8 @@ clear.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 });
+
+
 var scoreHistory = localStorage.getItem("scoreHistory");
 scoreHistory = JSON.parse(scoreHistory);
 
