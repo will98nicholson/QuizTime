@@ -41,7 +41,7 @@ var score = 0;
 
 
 //countdown
-timer.addEventListener("click", function () {
+timer.onclick = function () {
 
     if (holdTime === 0) {
         holdTime = setInterval(function () {
@@ -56,7 +56,7 @@ timer.addEventListener("click", function () {
         }, 1000);
     }
     render(allQuestions);
-});
+};
 
 
 function render(allQuestions) {
