@@ -2,7 +2,7 @@ var highScore = document.querySelector("#highScore");
 var clear = document.querySelector("#clear");
 var startOver = document.querySelector("#startOver");
 
-//start over clear buttons
+//start over and clear buttons
 clear.onclick = function () {
     localStorage.clear();
     location.reload();
