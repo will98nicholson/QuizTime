@@ -31,7 +31,7 @@ var timer = document.querySelector("#beginQuiz");
 var prompt = document.querySelector("#prompt");
 var container = document.querySelector("#container");
 
-
+//time vars
 var secondsLeft = 60;
 var holdTime = 0;
 var dockTime = 10;
