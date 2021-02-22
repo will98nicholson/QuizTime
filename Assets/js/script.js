@@ -155,7 +155,7 @@ function endQuiz() {
 
 
     // local storage
-    submitData.addEventListener("click", function () {
+    submitData.onclick = function () {
         var enterInitials = boxData.value;
 
         if (enterInitials === null) {
@@ -179,7 +179,7 @@ function endQuiz() {
             localStorage.setItem("scoreHistory", newScore);
             window.location.replace("./ScorePage.html");
         }
-    });
+    };
 
 }
 

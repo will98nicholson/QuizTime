@@ -2,13 +2,15 @@ var highScore = document.querySelector("#highScore");
 var clear = document.querySelector("#clear");
 var startOver = document.querySelector("#startOver");
 
-
-clear.addEventListener("click", function () {
+//start over clear buttons
+clear.onclick = function () {
     localStorage.clear();
     location.reload();
-});
-
-
+};
+startOver.onclick = function () {
+    window.location.replace("./index.html");
+};
+//list scores on leaderboard
 var scoreHistory = localStorage.getItem("scoreHistory");
 scoreHistory = JSON.parse(scoreHistory);
 
@@ -22,6 +24,3 @@ if (scoreHistory !== null) {
 
     }
 }
-startOver.addEventListener("click", function () {
-    window.location.replace("./index.html");
-});
